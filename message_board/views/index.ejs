@@ -1,0 +1,25 @@
+<h1>MESSAGE BOARD</h1>
+<form action='/message' method='post'>
+	<p>Name: <input type='text' name='name'>
+	<p>Message: <textarea name='message'></textarea></p>
+	<p><input type='submit' value='Post Message'></p>
+</form>
+<% if(typeof(errors)!= 'undefined'){ %>
+	<% for(var idx in errors){ %>
+		<h3><%= errors[idx].message %></h3>
+	<% } %>
+<% } else{ %>
+	<% for(var message of messages){ %>
+		<h3>Name: <%= message.name %></h3>
+		<h3>Message: <%= message.message %></h3>  
+		<% for(var comment of message._comments){ %>
+			<h5>Name: <%= comment.name %></h5>
+			<h5>Comment: <%= comment.text %></h5>
+		<% } %>
+		<form action='comment/<%= message._id %>' method='post'>
+			<p>Name: <input type='text' name='name'></p>
+			<p>Comment: <textarea name='comment'></textarea>
+			<p><input type='submit' value='Post Comment'></p>
+		</form>
+	<% } %>
+<% } %>

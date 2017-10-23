@@ -1,0 +1,10 @@
+<h3>Here are the awesome quotes!</h3>
+<table>
+	<% for(var x in quotes){ %>
+		<tr>
+			<td>"<%= quotes[x].quote %>"</td>
+			<td><%= quotes[x].name %></td>
+			<td><%= quotes[x].time %></td>			
+		</tr>
+	<% } %>
+</table>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<h1>Puppos</h1>
+		<a href='/mongooses/new'>New Puppo</a>
+		<% for(var x in pups){ %>
+			<p>Name: <a href='/mongooses/<%= pups[x]._id %>'><%= pups[x].name %></a></p>
+			<p>Age: <%= pups[x].age %></p>
+			<p>Breed: <%= pups[x].breed %></p>
+			<a href='/mongooses/edit/<%= pups[x]._id%>'>Edit</a>
+			<form action='/mongooses/destroy/<%= pups[x]._id%>' method='post'>
+				<input type='submit' value='Destroy'>
+			</form>
+		<% } %>
+	</body>
+</html>

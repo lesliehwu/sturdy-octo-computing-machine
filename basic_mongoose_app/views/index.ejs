@@ -1,0 +1,13 @@
+<form action='/users' method='post'>
+	<p>Name: <input type='text' name='name'></p>
+	<p>Age: <input type='text' name='age'></p>
+	<p><input type='submit' value='Submit'></p>
+</form>
+<table>
+	<% for(var x in users){ %>
+		<tr>
+			<td><%= users[x].name %></td>
+			<td><%= users[x].age %></td>
+		</tr>
+	<% } %>
+</table>

@@ -1,0 +1,27 @@
+server.js
+- always start with your server.js file
+- the server.js file acts as the home base for your application
+- this is where you require the routes and the mongoose configurations
+- the server.js also creates the express application, loads configurations onto it, and then tells it to listen
+
+server/config/routes.js
+- this is the file that specifies which routes will be handled and by which controller methods
+- from routes.js we require the controller file (or files)
+
+server/config/mongoose.js
+- this is the file that connects to the database and loads all of the models
+- here we specify a database to connect to and the path where all of our models are
+- this file is required by server.js
+
+server/controllers/quotes.js
+- this is the file that handles all of the server-side logic
+- the controller is called upon by routes
+- the controller interacts with preloaded models to run database commands
+- the controller sends the response to the client
+- there can be many controllers in the server/controllers folder
+
+server/models/quote.js
+- this is the file that specifies the schema to be loaded by mongoose
+- this file is required by mongoose.js
+- we do not need to require this file in the controller, instead the model itself is loaded from mongoose
+- there can be many models in the server/models folder
